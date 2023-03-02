@@ -3,9 +3,9 @@ We need to create permission first on the non sudo user
 sudo usermod -aG sudo ubuntu
 Setting up a basic firewall
 sudo ufw app list ( it will list all Applications)
-type: ufw allow OpenSSH  it will open the OPENSSH conncection 
+sudo ufw allow OpenSSH  it will open the OPENSSH conncection 
 sudo ufw enable   (command to enable the firewall)
-ufw status  (to check the status of open application)
+sudo ufw status  (to check the status of open application)
 
 
 Installing Certbot
@@ -26,18 +26,18 @@ server_name dikshant.exampur.xyz www.dikshant.exampur.xyz;
  
  
  ALLOW HTTPS Through the Firewall
- sudo ufw status   to check firewall status and running ports
+ #sudo ufw status   to check firewall status and running ports
  sudo ufw allow 'Nginx Full'  (To let in additional HTTPS traffic, allow the Nginx Full profile)
-sudo ufw delete allow 'Nginx HTTP'  ( delete the redundant Nginx HTTP profile if exist )
-sudo ufw status   (to confirm that it has been added)
+#sudo ufw delete allow 'Nginx HTTP'  ( delete the redundant Nginx HTTP profile if exist )
+#sudo ufw status   (to confirm that it has been added)
 
 
 OBTAINING an SSL Certificate
 
-sudo certbot --nginx -d dikshant.exampur.xyz -d www.dikshant.exampur.xyz
+sudo certbot --nginx -d dikshant.exampur.xyz 
 (It will ask for a email id provide the email id and you will get a success message)
 
 
 AUTO RENEWAL OF CERTBOT
-sudo certbot renew --dry-run  it it runs successfully it will update CERTFOT CERTIFICATE when needed 
+sudo certbot renew --dry-run  #it it runs successfully it will update CERTFOT CERTIFICATE when needed 
 
